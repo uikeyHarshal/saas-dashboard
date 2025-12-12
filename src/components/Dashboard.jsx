@@ -17,7 +17,7 @@ export default function Dashboard({ isDark, setIsDark, collapsed, setCollapsed }
     <div className={`${isDark ? "bg-gray-900 text-gray-100" : "bg-gray-50 text-gray-800"} min-h-screen flex w-full`}>
       <Sidebar collapsed={collapsed} isDark={isDark} />
 
-      {/* Main column: flex-1 grows to remaining width; min-w-0 prevents overflow */}
+      
       <div className="flex-1 w-full min-w-0">
         <Topbar
           isDark={isDark}
@@ -26,18 +26,18 @@ export default function Dashboard({ isDark, setIsDark, collapsed, setCollapsed }
           setCollapsed={setCollapsed}
         />
 
-        {/* Centered content container with max width for large monitors */}
+       
         <main className="w-full">
           <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-            {/* Stats Row: responsive 1 → 2 → 4 cols */}
+        
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               {stats.map((s) => (
                 <StatsCard key={s.title} {...s} isDark={isDark} />
               ))}
             </div>
 
-            {/* Charts area — full width of the centered container */}
+           
             <div className="space-y-6">
               <div className={`${isDark ? "bg-gray-800 border-gray-700" : "bg-white"} border rounded p-4 shadow-sm`}>
                 <div className="text-sm text-gray-400 mb-3">Traffic (Last 30 days)</div>
@@ -53,9 +53,9 @@ export default function Dashboard({ isDark, setIsDark, collapsed, setCollapsed }
                 </div>
               </div>
 
-              {/* Activity + Table side by side on wide screens, stacked on small */}
+              
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                {/* Recent activity (takes 1 column on lg) */}
+              
                 <div className={`${isDark ? "bg-gray-800 border-gray-700" : "bg-white"} border rounded p-4 shadow-sm lg:col-span-1`}>
                   <div className="text-sm text-gray-400 mb-2">Recent Activity</div>
                   <ul className="space-y-3">
@@ -65,7 +65,7 @@ export default function Dashboard({ isDark, setIsDark, collapsed, setCollapsed }
                   </ul>
                 </div>
 
-                {/* Table (spans 2 columns on large screens to use leftover space) */}
+               
                 <div className={`${isDark ? "bg-gray-800 border-gray-700" : "bg-white"} border rounded p-4 shadow-sm lg:col-span-2`}>
                   <div className="text-sm text-gray-400 mb-3">Recent Users</div>
                   <div className="overflow-x-auto">
@@ -107,3 +107,4 @@ export default function Dashboard({ isDark, setIsDark, collapsed, setCollapsed }
     </div>
   );
 }
+
